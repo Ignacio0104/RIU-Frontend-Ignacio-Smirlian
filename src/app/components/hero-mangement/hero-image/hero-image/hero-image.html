@@ -1,0 +1,13 @@
+<div class="hero-image-container">
+  @if (isLoading()) {
+  <mat-spinner></mat-spinner>
+  } @if(heroImage()){
+  <img alt="hero image" (load)="onImageLoad()" src="{{ heroImage() }}" />
+  }@else{
+  <img
+    (load)="onImageLoad()"
+    alt="no hero image"
+    src="assets/images/Placeholder_couple_superhero.png"
+  />
+  }
+</div>
