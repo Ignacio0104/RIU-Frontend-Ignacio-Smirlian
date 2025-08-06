@@ -12,6 +12,7 @@ import { pictureUrlValidator } from './validators';
 import { HeroManagementSerivce } from '../../services/hero-management-service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogRef } from '@angular/material/dialog';
+import { UppercaseDirective } from '../../directives/upper-case-directive';
 
 @Component({
   selector: 'app-hero-form',
@@ -21,6 +22,7 @@ import { MatDialogRef } from '@angular/material/dialog';
     FormsModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
+    UppercaseDirective,
   ],
   templateUrl: './hero-form.html',
   styleUrl: './hero-form.scss',
