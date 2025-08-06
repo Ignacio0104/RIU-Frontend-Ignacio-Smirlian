@@ -14,7 +14,7 @@ export enum UniverseEnum {
   OTHER = 'Other',
 }
 
-export enum NextOrPreviousHero {
+export enum NextOrPrevious {
   NEXT = 'Next',
   PREVIOUS = 'Previous',
 }

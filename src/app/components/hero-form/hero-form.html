@@ -1,0 +1,100 @@
+<div class="form-container">
+  <form [formGroup]="heroForm" (ngSubmit)="onSubmit()" class="hero-form">
+    <label>
+      Name:
+      <input
+        [ngClass]="{ 'error-class': controlIsInvalid('name') }"
+        formControlName="name"
+      />
+
+      <span
+        [style.opacity]="controlIsInvalid('name') ? 1 : 0"
+        class="error-message"
+        >Name is a required field</span
+      >
+    </label>
+
+    <label>
+      Alter Ego:
+      <input
+        [ngClass]="{ 'error-class': controlIsInvalid('alterEgo') }"
+        formControlName="alterEgo"
+      />
+      <span
+        [style.opacity]="controlIsInvalid('alterEgo') ? 1 : 0"
+        class="error-message"
+        >Alter Ego is a required field</span
+      >
+    </label>
+
+    <label>
+      Power:
+      <input
+        type="number"
+        max="500"
+        [ngClass]="{ 'error-class': controlIsInvalid('power') }"
+        formControlName="power"
+      />
+      <span
+        [style.opacity]="controlIsInvalid('power') ? 1 : 0"
+        class="error-message"
+      >
+        {{
+          heroForm.get("power")?.hasError("required")
+            ? "Power is a required field"
+            : "Power is too big (Max value is 500)"
+        }}
+      </span>
+    </label>
+
+    <label>
+      Universe:
+      <select
+        [ngClass]="{ 'error-class': controlIsInvalid('universe') }"
+        formControlName="universe"
+      >
+        <option value="" disabled>Select a universe</option>
+        <option value="Marvel">Marvel</option>
+        <option value="DC">DC Comics</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <span
+        [style.opacity]="controlIsInvalid('universe') ? 1 : 0"
+        class="error-message"
+        >Universe is a required field</span
+      >
+    </label>
+
+    <label>
+      Photo:
+      <input
+        [ngClass]="{ 'error-class': controlIsInvalid('pictureUrl') }"
+        formControlName="pictureUrl"
+      />
+      <span
+        [style.opacity]="controlIsInvalid('pictureUrl') ? 1 : 0"
+        class="error-message"
+        >Insert a valir URL</span
+      >
+    </label>
+
+    <label>
+      Description:
+
+      <textarea
+        [ngClass]="{ 'error-class': controlIsInvalid('description') }"
+        formControlName="description"
+        maxlength="150"
+      ></textarea>
+    </label>
+
+    <button type="submit" [disabled]="heroForm.invalid">
+      @if(!saving){
+      <span>Create Hero</span>
+      }@else {
+      <mat-spinner [diameter]="20"></mat-spinner>
+      }
+    </button>
+  </form>
+</div>

@@ -1,0 +1,39 @@
+.form-container {
+  height: 500px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .hero-form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+  }
+
+  textarea {
+    resize: none;
+    height: 60px;
+  }
+
+  .error-class {
+    border: 1px solid tomato;
+  }
+
+  .error-message {
+    font-size: 10px;
+    color: tomato;
+    margin-left: auto;
+  }
+
+  button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+}

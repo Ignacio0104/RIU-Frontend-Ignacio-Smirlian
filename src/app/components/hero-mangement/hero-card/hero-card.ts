@@ -1,5 +1,5 @@
 import { Component, input, output } from '@angular/core';
-import { Hero, NextOrPreviousHero } from '../../../models/hero-models';
+import { Hero, NextOrPrevious } from '../../../models/hero-models';
 import { HeroImage } from '../hero-image/hero-image';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -11,12 +11,12 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './hero-card.scss',
 })
 export class HeroCard {
-  readonly NextOrPreviousHero = NextOrPreviousHero;
-  changeHero = output<NextOrPreviousHero>();
+  readonly NextOrPrevious = NextOrPrevious;
+  changeHero = output<NextOrPrevious>();
 
   selectedHero = input.required<Hero>();
 
-  emitChangeHero(action: NextOrPreviousHero) {
+  emitChangeHero(action: NextOrPrevious) {
     this.changeHero.emit(action);
   }
 }

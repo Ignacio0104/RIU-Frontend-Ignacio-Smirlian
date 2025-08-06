@@ -45,4 +45,147 @@ export const initalHeroesData: Hero[] = [
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam exercitationem perspiciatis officia modi impedit temporibus. Nam, quas itaque. Tempora?',
   },
+  {
+    id: '4',
+    name: 'Batman',
+    alterEgo: 'Bruce Wayne',
+    power: 100,
+    universe: UniverseEnum.DC,
+    pictureUrl:
+      'https://cloudfront-us-east-1.images.arcpublishing.com/eluniverso/I4FR4SYJ2NC6NANKQLFLOMHGJM.jpg',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam exercitationem perspiciatis officia modi impedit temporibus. Nam, quas itaque. Tempora?',
+  },
+  {
+    id: '4',
+    name: 'Batman',
+    alterEgo: 'Bruce Wayne',
+    power: 100,
+    universe: UniverseEnum.DC,
+    pictureUrl:
+      'https://cloudfront-us-east-1.images.arcpublishing.com/eluniverso/I4FR4SYJ2NC6NANKQLFLOMHGJM.jpg',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam exercitationem perspiciatis officia modi impedit temporibus. Nam, quas itaque. Tempora?',
+  },
+  {
+    id: '4',
+    name: 'Batman',
+    alterEgo: 'Bruce Wayne',
+    power: 100,
+    universe: UniverseEnum.DC,
+    pictureUrl:
+      'https://cloudfront-us-east-1.images.arcpublishing.com/eluniverso/I4FR4SYJ2NC6NANKQLFLOMHGJM.jpg',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam exercitationem perspiciatis officia modi impedit temporibus. Nam, quas itaque. Tempora?',
+  },
+  {
+    id: '4',
+    name: 'Batman',
+    alterEgo: 'Bruce Wayne',
+    power: 100,
+    universe: UniverseEnum.DC,
+    pictureUrl:
+      'https://cloudfront-us-east-1.images.arcpublishing.com/eluniverso/I4FR4SYJ2NC6NANKQLFLOMHGJM.jpg',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam exercitationem perspiciatis officia modi impedit temporibus. Nam, quas itaque. Tempora?',
+  },
+  {
+    id: '4',
+    name: 'Batman',
+    alterEgo: 'Bruce Wayne',
+    power: 100,
+    universe: UniverseEnum.DC,
+    pictureUrl:
+      'https://cloudfront-us-east-1.images.arcpublishing.com/eluniverso/I4FR4SYJ2NC6NANKQLFLOMHGJM.jpg',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam exercitationem perspiciatis officia modi impedit temporibus. Nam, quas itaque. Tempora?',
+  },
+  {
+    id: '4',
+    name: 'Batman',
+    alterEgo: 'Bruce Wayne',
+    power: 100,
+    universe: UniverseEnum.DC,
+    pictureUrl:
+      'https://cloudfront-us-east-1.images.arcpublishing.com/eluniverso/I4FR4SYJ2NC6NANKQLFLOMHGJM.jpg',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam exercitationem perspiciatis officia modi impedit temporibus. Nam, quas itaque. Tempora?',
+  },
+  {
+    id: '4',
+    name: 'Batman',
+    alterEgo: 'Bruce Wayne',
+    power: 100,
+    universe: UniverseEnum.DC,
+    pictureUrl:
+      'https://cloudfront-us-east-1.images.arcpublishing.com/eluniverso/I4FR4SYJ2NC6NANKQLFLOMHGJM.jpg',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam exercitationem perspiciatis officia modi impedit temporibus. Nam, quas itaque. Tempora?',
+  },
+  {
+    id: '4',
+    name: 'Batman',
+    alterEgo: 'Bruce Wayne',
+    power: 100,
+    universe: UniverseEnum.DC,
+    pictureUrl:
+      'https://cloudfront-us-east-1.images.arcpublishing.com/eluniverso/I4FR4SYJ2NC6NANKQLFLOMHGJM.jpg',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam exercitationem perspiciatis officia modi impedit temporibus. Nam, quas itaque. Tempora?',
+  },
+  {
+    id: '4',
+    name: 'Batman',
+    alterEgo: 'Bruce Wayne',
+    power: 100,
+    universe: UniverseEnum.DC,
+    pictureUrl:
+      'https://cloudfront-us-east-1.images.arcpublishing.com/eluniverso/I4FR4SYJ2NC6NANKQLFLOMHGJM.jpg',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam exercitationem perspiciatis officia modi impedit temporibus. Nam, quas itaque. Tempora?',
+  },
+  {
+    id: '4',
+    name: 'Batman',
+    alterEgo: 'Bruce Wayne',
+    power: 100,
+    universe: UniverseEnum.DC,
+    pictureUrl:
+      'https://cloudfront-us-east-1.images.arcpublishing.com/eluniverso/I4FR4SYJ2NC6NANKQLFLOMHGJM.jpg',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam exercitationem perspiciatis officia modi impedit temporibus. Nam, quas itaque. Tempora?',
+  },
+  {
+    id: '4',
+    name: 'Batman',
+    alterEgo: 'Bruce Wayne',
+    power: 100,
+    universe: UniverseEnum.DC,
+    pictureUrl:
+      'https://cloudfront-us-east-1.images.arcpublishing.com/eluniverso/I4FR4SYJ2NC6NANKQLFLOMHGJM.jpg',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam exercitationem perspiciatis officia modi impedit temporibus. Nam, quas itaque. Tempora?',
+  },
+  {
+    id: '4',
+    name: 'Batman',
+    alterEgo: 'Bruce Wayne',
+    power: 100,
+    universe: UniverseEnum.DC,
+    pictureUrl:
+      'https://cloudfront-us-east-1.images.arcpublishing.com/eluniverso/I4FR4SYJ2NC6NANKQLFLOMHGJM.jpg',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam exercitationem perspiciatis officia modi impedit temporibus. Nam, quas itaque. Tempora?',
+  },
+  {
+    id: '4',
+    name: 'Batman',
+    alterEgo: 'Bruce Wayne',
+    power: 100,
+    universe: UniverseEnum.DC,
+    pictureUrl:
+      'https://cloudfront-us-east-1.images.arcpublishing.com/eluniverso/I4FR4SYJ2NC6NANKQLFLOMHGJM.jpg',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam exercitationem perspiciatis officia modi impedit temporibus. Nam, quas itaque. Tempora?',
+  },
 ];

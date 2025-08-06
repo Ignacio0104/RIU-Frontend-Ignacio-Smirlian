@@ -1,0 +1,16 @@
+.table-wrapper {
+  height: 450px;
+  background-color: grey;
+  margin-right: 20px;
+
+  table {
+    cursor: pointer;
+  }
+}
+
+.pagination-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 30px;
+}
