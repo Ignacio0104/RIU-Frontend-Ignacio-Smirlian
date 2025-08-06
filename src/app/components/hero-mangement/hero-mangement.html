@@ -1,32 +1,10 @@
 <div class="main-hero-container">
   @if(selectedHero){
-  <div class="card-container">
-    <mat-card class="card">
-      <mat-card-header>
-        <mat-card-title>{{ selectedHero.name }}</mat-card-title>
-      </mat-card-header>
-
-      <app-hero-image [heroImage]="selectedHero.pictureUrl" />
-
-      <mat-card-content class="description-container">
-        <p>{{ selectedHero.description }}</p>
-      </mat-card-content>
-
-      <mat-card-actions>
-        <button
-          mat-button
-          (click)="changeSelectedHero(NextOrPreviousHero.PREVIOUS)"
-        >
-          Previous
-        </button>
-        <button
-          mat-button
-          (click)="changeSelectedHero(NextOrPreviousHero.NEXT)"
-        >
-          Next
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
+  <app-hero-card
+    [selectedHero]="selectedHero"
+    (changeHero)="changeSelectedHero($event)"
+  />
+  } @if(heroesList.length > 0){
+  <app-hero-list />
   }
 </div>

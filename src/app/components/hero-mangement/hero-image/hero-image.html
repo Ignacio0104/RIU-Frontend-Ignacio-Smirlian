@@ -2,9 +2,15 @@
   @if (isLoading()) {
   <mat-spinner></mat-spinner>
   } @if(heroImage()){
-  <img alt="hero image" (load)="onImageLoad()" src="{{ heroImage() }}" />
+  <img
+    alt="hero image"
+    [style.display]="isLoading() ? 'none' : 'block'"
+    (load)="onImageLoad()"
+    src="{{ heroImage() }}"
+  />
   }@else{
   <img
+    [style.display]="isLoading() ? 'none' : 'block'"
     (load)="onImageLoad()"
     alt="no hero image"
     src="assets/images/Placeholder_couple_superhero.png"
