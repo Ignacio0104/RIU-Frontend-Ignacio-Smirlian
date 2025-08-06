@@ -3,8 +3,8 @@ import { MatRow, MatTableModule } from '@angular/material/table';
 import {
   HeroManagementSerivce,
   Pages,
-} from '../../services/hero-management-service';
-import { Hero, NextOrPrevious } from '../../models/hero-models';
+} from '../../../services/hero-management-service';
+import { Hero, NextOrPrevious } from '../../../models/hero-models';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({

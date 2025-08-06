@@ -7,12 +7,11 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Hero } from '../../models/hero-models';
 import { pictureUrlValidator } from './validators';
-import { HeroManagementSerivce } from '../../services/hero-management-service';
+import { HeroManagementSerivce } from '../../../services/hero-management-service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogRef } from '@angular/material/dialog';
-import { UppercaseDirective } from '../../directives/upper-case-directive';
+import { UppercaseDirective } from '../../../directives/upper-case-directive';
 
 @Component({
   selector: 'app-hero-form',
@@ -53,7 +52,7 @@ export class HeroForm {
     this.heroForm = this.fb.group({
       name: ['', Validators.required],
       alterEgo: ['', Validators.required],
-      power: ['', Validators.required],
+      power: ['', [Validators.required]],
       universe: ['', Validators.required],
       pictureUrl: ['', [pictureUrlValidator()]],
       description: [''],
@@ -63,6 +62,21 @@ export class HeroForm {
   controlIsInvalid(controlName: string) {
     const control = this.heroForm.get(controlName);
     return control?.touched && control.invalid;
+  }
+
+  getPowerError() {
+    const control = this.heroForm.get('power');
+    if (control?.errors) {
+      switch (control?.errors[0]) {
+        case 'max':
+          return 'Power is too big (Max value is 500)';
+        case 'notNumeric':
+          return 'Power must be a number';
+        default:
+          return 'Power is a required field';
+      }
+    }
+    return '';
   }
 
   onSubmit() {

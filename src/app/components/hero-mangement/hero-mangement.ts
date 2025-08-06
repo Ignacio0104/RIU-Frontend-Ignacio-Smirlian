@@ -5,9 +5,9 @@ import { MatCardModule } from '@angular/material/card';
 import { Hero, NextOrPrevious } from '../../models/hero-models';
 import { HeroImage } from './hero-image/hero-image';
 import { HeroCard } from './hero-card/hero-card';
-import { HeroList } from '../hero-list/hero-list';
+import { HeroList } from './hero-list/hero-list';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { HeroForm } from '../hero-form/hero-form';
+import { HeroForm } from './hero-form/hero-form';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
