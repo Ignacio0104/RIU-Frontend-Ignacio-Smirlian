@@ -67,18 +67,25 @@
       >
     </label>
 
-    <label>
-      Photo:
-      <input
-        [ngClass]="{ 'error-class': controlIsInvalid('pictureUrl') }"
-        formControlName="pictureUrl"
-      />
-      <span
-        [style.opacity]="controlIsInvalid('pictureUrl') ? 1 : 0"
-        class="error-message"
-        >Insert a valir URL</span
-      >
-    </label>
+    <div class="image-input">
+      <label>
+        Photo:
+        <input
+          [ngClass]="{ 'error-class': controlIsInvalid('pictureUrl') }"
+          formControlName="pictureUrl"
+        />
+        <span
+          [style.opacity]="controlIsInvalid('pictureUrl') ? 1 : 0"
+          class="error-message"
+          >Insert a valir URL</span
+        >
+      </label>
+      @if(displayImage()){
+      <div class="image-container">
+        <app-hero-image [heroImage]="heroForm.get('pictureUrl')?.value" />
+      </div>
+      }
+    </div>
 
     <label>
       Description:
@@ -90,9 +97,9 @@
       ></textarea>
     </label>
 
-    <button type="submit" [disabled]="heroForm.invalid">
+    <button type="submit" [disabled]="heroForm.invalid && !data">
       @if(!saving){
-      <span>Create Hero</span>
+      <span>{{ data ? "Edit Hero" : "Create Hero" }}</span>
       }@else {
       <mat-spinner [diameter]="20"></mat-spinner>
       }

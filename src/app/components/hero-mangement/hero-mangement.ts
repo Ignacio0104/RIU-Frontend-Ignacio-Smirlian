@@ -6,7 +6,11 @@ import { Hero, NextOrPrevious } from '../../models/hero-models';
 import { HeroImage } from './hero-image/hero-image';
 import { HeroCard } from './hero-card/hero-card';
 import { HeroList } from './hero-list/hero-list';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import {
+  MatDialog,
+  MatDialogConfig,
+  MatDialogModule,
+} from '@angular/material/dialog';
 import { HeroForm } from './hero-form/hero-form';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -34,8 +38,13 @@ export class HeroMangement {
 
   ngOnInit() {}
 
-  openFormDialog() {
-    const dialogRef = this.dialog.open(HeroForm);
+  openFormDialog(edition?: boolean) {
+    const dialogConfig = {} as MatDialogConfig;
+
+    if (edition) {
+      dialogConfig.data = this.selectedHero;
+    }
+    const dialogRef = this.dialog.open(HeroForm, dialogConfig);
 
     dialogRef.afterClosed().subscribe((res) => {
       if (res) {

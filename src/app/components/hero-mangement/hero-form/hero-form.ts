@@ -10,8 +10,10 @@ import {
 import { pictureUrlValidator } from './validators';
 import { HeroManagementSerivce } from '../../../services/hero-management-service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { UppercaseDirective } from '../../../directives/upper-case-directive';
+import { Hero } from '../../../models/hero-models';
+import { HeroImage } from '../hero-image/hero-image';
 
 @Component({
   selector: 'app-hero-form',
@@ -22,6 +24,7 @@ import { UppercaseDirective } from '../../../directives/upper-case-directive';
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     UppercaseDirective,
+    HeroImage,
   ],
   templateUrl: './hero-form.html',
   styleUrl: './hero-form.scss',
@@ -30,6 +33,8 @@ export class HeroForm {
   heroForm!: FormGroup;
 
   fb = inject(FormBuilder);
+
+  data = inject<Hero | null>(MAT_DIALOG_DATA, { optional: true });
 
   saving: boolean = false;
 
@@ -49,13 +54,27 @@ export class HeroForm {
   }
 
   ngOnInit(): void {
+    const defaultValues = {
+      name: '',
+      alterEgo: '',
+      power: '',
+      universe: '',
+      pictureUrl: '',
+      description: '',
+    };
+
+    const { alterEgo, description, name, pictureUrl, power, universe } = this
+      .data
+      ? { ...defaultValues, ...this.data }
+      : defaultValues;
+
     this.heroForm = this.fb.group({
-      name: ['', Validators.required],
-      alterEgo: ['', Validators.required],
-      power: ['', [Validators.required]],
-      universe: ['', Validators.required],
-      pictureUrl: ['', [pictureUrlValidator()]],
-      description: [''],
+      name: [name, Validators.required],
+      alterEgo: [alterEgo, Validators.required],
+      power: [power, [Validators.required]],
+      universe: [universe, Validators.required],
+      pictureUrl: [pictureUrl, [pictureUrlValidator()]],
+      description: [description],
     });
   }
 
@@ -79,12 +98,23 @@ export class HeroForm {
     return '';
   }
 
+  displayImage() {
+    const control = this.heroForm.get('pictureUrl');
+    return (
+      control?.value && control.dirty && !this.controlIsInvalid('pictureUrl')
+    );
+  }
+
   onSubmit() {
-    if (this.heroForm.valid) {
+    if (!this.heroForm.errors) {
       this.formSubmitted.set(true);
-      this.heroService.addNewHero({
-        ...this.heroForm.value,
-      });
+      if (this.data) {
+        this.heroService.editHero(this.heroForm.value);
+      } else {
+        this.heroService.addNewHero({
+          ...this.heroForm.value,
+        });
+      }
     }
   }
 }

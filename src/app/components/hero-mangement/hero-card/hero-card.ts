@@ -14,9 +14,15 @@ export class HeroCard {
   readonly NextOrPrevious = NextOrPrevious;
   changeHero = output<NextOrPrevious>();
 
+  editHero = output<boolean>();
+
   selectedHero = input.required<Hero>();
 
   emitChangeHero(action: NextOrPrevious) {
     this.changeHero.emit(action);
+  }
+
+  emitEditHero() {
+    this.editHero.emit(true);
   }
 }

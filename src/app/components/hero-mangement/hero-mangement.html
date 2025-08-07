@@ -3,6 +3,7 @@
   <app-hero-card
     [selectedHero]="selectedHero"
     (changeHero)="changeSelectedHero($event)"
+    (editHero)="openFormDialog($event)"
   />
   } @if(heroesList.length > 0){
   <app-hero-list />

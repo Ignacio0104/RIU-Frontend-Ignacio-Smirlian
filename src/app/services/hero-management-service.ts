@@ -73,6 +73,25 @@ export class HeroManagementSerivce {
     }
   }
 
+  editHero(hero: Hero) {
+    this._isLoading.set(true);
+    setTimeout(() => {
+      const heroIndex = this.heroesList().findIndex(
+        (hero) => hero.id === hero.id
+      );
+
+      if (heroIndex > -1) {
+        const currentHeroList = this.heroesList();
+
+        this._selectedHero.set(hero);
+
+        (currentHeroList[heroIndex] = { ...hero }),
+          this._heroesList.set(currentHeroList);
+      }
+      this._isLoading.set(false);
+    }, 3000);
+  }
+
   addNewHero(hero: Hero) {
     this._isLoading.set(true);
     setTimeout(() => {

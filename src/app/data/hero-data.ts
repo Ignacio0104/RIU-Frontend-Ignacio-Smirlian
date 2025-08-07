@@ -3,7 +3,7 @@ import { Hero, UniverseEnum } from '../models/hero-models';
 export const initalHeroesData: Hero[] = [
   {
     id: '1',
-    name: 'Spider-Man',
+    name: 'SPIDER MAN',
     alterEgo: 'Peter Parker',
     power: 90,
     universe: UniverseEnum.MARVEL,
@@ -14,7 +14,7 @@ export const initalHeroesData: Hero[] = [
   },
   {
     id: '2',
-    name: 'Thor',
+    name: 'THOR',
     alterEgo: 'Donal Blake',
     power: 500,
     universe: UniverseEnum.MARVEL,
@@ -25,7 +25,7 @@ export const initalHeroesData: Hero[] = [
   },
   {
     id: '3',
-    name: 'Hulk',
+    name: 'HULK',
     alterEgo: 'Bruce Banner',
     power: 150,
     universe: UniverseEnum.MARVEL,
@@ -36,7 +36,7 @@ export const initalHeroesData: Hero[] = [
   },
   {
     id: '4',
-    name: 'Batman',
+    name: 'BATMAN',
     alterEgo: 'Bruce Wayne',
     power: 100,
     universe: UniverseEnum.DC,
@@ -47,7 +47,7 @@ export const initalHeroesData: Hero[] = [
   },
   {
     id: '4',
-    name: 'Batman',
+    name: 'BATMAN',
     alterEgo: 'Bruce Wayne',
     power: 100,
     universe: UniverseEnum.DC,
@@ -58,7 +58,7 @@ export const initalHeroesData: Hero[] = [
   },
   {
     id: '4',
-    name: 'Batman',
+    name: 'BATMAN',
     alterEgo: 'Bruce Wayne',
     power: 100,
     universe: UniverseEnum.DC,
@@ -69,7 +69,7 @@ export const initalHeroesData: Hero[] = [
   },
   {
     id: '4',
-    name: 'Batman',
+    name: 'BATMAN',
     alterEgo: 'Bruce Wayne',
     power: 100,
     universe: UniverseEnum.DC,
@@ -80,7 +80,7 @@ export const initalHeroesData: Hero[] = [
   },
   {
     id: '4',
-    name: 'Batman',
+    name: 'BATMAN',
     alterEgo: 'Bruce Wayne',
     power: 100,
     universe: UniverseEnum.DC,
@@ -91,7 +91,7 @@ export const initalHeroesData: Hero[] = [
   },
   {
     id: '4',
-    name: 'Batman',
+    name: 'BATMAN',
     alterEgo: 'Bruce Wayne',
     power: 100,
     universe: UniverseEnum.DC,
@@ -102,7 +102,7 @@ export const initalHeroesData: Hero[] = [
   },
   {
     id: '4',
-    name: 'Batman',
+    name: 'BATMAN',
     alterEgo: 'Bruce Wayne',
     power: 100,
     universe: UniverseEnum.DC,
@@ -113,7 +113,7 @@ export const initalHeroesData: Hero[] = [
   },
   {
     id: '4',
-    name: 'Batman',
+    name: 'BATMAN',
     alterEgo: 'Bruce Wayne',
     power: 100,
     universe: UniverseEnum.DC,
@@ -124,7 +124,7 @@ export const initalHeroesData: Hero[] = [
   },
   {
     id: '4',
-    name: 'Batman',
+    name: 'BATMAN',
     alterEgo: 'Bruce Wayne',
     power: 100,
     universe: UniverseEnum.DC,
@@ -135,7 +135,7 @@ export const initalHeroesData: Hero[] = [
   },
   {
     id: '4',
-    name: 'Batman',
+    name: 'BATMAN',
     alterEgo: 'Bruce Wayne',
     power: 100,
     universe: UniverseEnum.DC,
@@ -146,7 +146,7 @@ export const initalHeroesData: Hero[] = [
   },
   {
     id: '4',
-    name: 'Batman',
+    name: 'BATMAN',
     alterEgo: 'Bruce Wayne',
     power: 100,
     universe: UniverseEnum.DC,
@@ -157,7 +157,7 @@ export const initalHeroesData: Hero[] = [
   },
   {
     id: '4',
-    name: 'Batman',
+    name: 'BATMAN',
     alterEgo: 'Bruce Wayne',
     power: 100,
     universe: UniverseEnum.DC,
@@ -168,7 +168,7 @@ export const initalHeroesData: Hero[] = [
   },
   {
     id: '4',
-    name: 'Batman',
+    name: 'BATMAN',
     alterEgo: 'Bruce Wayne',
     power: 100,
     universe: UniverseEnum.DC,
@@ -179,7 +179,7 @@ export const initalHeroesData: Hero[] = [
   },
   {
     id: '4',
-    name: 'Batman',
+    name: 'BATMAN',
     alterEgo: 'Bruce Wayne',
     power: 100,
     universe: UniverseEnum.DC,

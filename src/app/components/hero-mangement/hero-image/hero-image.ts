@@ -12,16 +12,25 @@ export class HeroImage {
 
   isLoading = signal(true);
 
+  imageLoad = signal(false);
+
   constructor() {
     effect(() => {
       const image = this.heroImage();
+
       if (image) {
         this.isLoading.set(true);
       }
+      setTimeout(() => {
+        if (this.isLoading() && !this.imageLoad()) {
+          this.isLoading.set(true);
+        }
+      }, 5000);
     });
   }
 
   onImageLoad() {
+    this.imageLoad.set(true);
     this.isLoading.set(false);
   }
 }
