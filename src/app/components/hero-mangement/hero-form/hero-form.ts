@@ -101,7 +101,9 @@ export class HeroForm {
   displayImage() {
     const control = this.heroForm.get('pictureUrl');
     return (
-      control?.value && control.dirty && !this.controlIsInvalid('pictureUrl')
+      control?.value &&
+      (control.dirty || this.data?.pictureUrl) &&
+      !this.controlIsInvalid('pictureUrl')
     );
   }
 
@@ -109,7 +111,7 @@ export class HeroForm {
     if (!this.heroForm.errors) {
       this.formSubmitted.set(true);
       if (this.data) {
-        this.heroService.editHero(this.heroForm.value);
+        this.heroService.editHero({ ...this.heroForm.value, id: this.data.id });
       } else {
         this.heroService.addNewHero({
           ...this.heroForm.value,

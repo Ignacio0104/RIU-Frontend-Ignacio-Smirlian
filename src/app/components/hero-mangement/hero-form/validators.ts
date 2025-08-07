@@ -9,7 +9,10 @@ export function pictureUrlValidator(): ValidatorFn {
     const urlRegex =
       /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
 
-    const isValid = urlRegex.test(control.value);
+    const fileRegex = /\.(jpg|jpeg|png|gif|bmp|svg)$/i;
+
+    const isValid =
+      urlRegex.test(control.value) && fileRegex.test(control.value);
 
     return isValid ? null : { invalidUrl: { value: control.value } };
   };
