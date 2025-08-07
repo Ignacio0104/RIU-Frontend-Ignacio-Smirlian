@@ -61,7 +61,7 @@ export class HeroForm {
     effect(() => {
       this.saving = this.appStatusSvc.isLoading();
       if (this.formSubmitted() && !this.saving) {
-        this.dialogRef.close(true);
+        this.dialogRef.close(this.data ? 'edited' : 'created');
       }
     });
   }
@@ -141,7 +141,7 @@ export class HeroForm {
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
         this.heroService.removeHero(this.data?.id || '');
-        this.dialogRef.close(true);
+        this.dialogRef.close('edit');
       }
     });
   }

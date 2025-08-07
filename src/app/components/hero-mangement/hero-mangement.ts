@@ -54,7 +54,7 @@ export class HeroMangement {
 
     dialogRef.afterClosed().subscribe((res) => {
       if (res) {
-        this.showConfirmation();
+        this.showConfirmation(res);
         this.tableService.getPaginatedHeroes();
       }
     });
@@ -68,8 +68,8 @@ export class HeroMangement {
     this.heroService.removeHero(heroId);
   }
 
-  private showConfirmation(duration: number = 3000) {
-    this.snackBar.open('Hero created succesfully!', '', {
+  private showConfirmation(action?: string, duration: number = 3000) {
+    this.snackBar.open(`Hero ${action} succesfully!`, '', {
       duration: duration,
       horizontalPosition: 'end',
       verticalPosition: 'top',
