@@ -1,7 +1,5 @@
 import { inject, Injectable, signal } from '@angular/core';
-import { Hero, NextOrPrevious } from '../models/hero-models';
-import { initalHeroesData } from '../data/hero-data';
-import { AppStatusService } from './app-status-service';
+import { Hero } from '../models/hero-models';
 import { HeroManagementSerivce } from './hero-management-service';
 
 export interface Pages {

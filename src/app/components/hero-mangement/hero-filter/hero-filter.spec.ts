@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HeroFilter } from './hero-filter';
 
 describe('HeroFilter', () => {
@@ -8,9 +7,8 @@ describe('HeroFilter', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeroFilter]
-    })
-    .compileComponents();
+      imports: [HeroFilter],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HeroFilter);
     component = fixture.componentInstance;
@@ -19,5 +17,15 @@ describe('HeroFilter', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should emit the filterUpdated event with the correct text', () => {
+    const emitSpy = spyOn(component.filterUpdated, 'emit');
+
+    const testText = 'Spider-Man';
+
+    component.onFilter(testText);
+
+    expect(emitSpy).toHaveBeenCalledWith(testText);
   });
 });
