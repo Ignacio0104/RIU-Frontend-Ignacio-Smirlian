@@ -6,10 +6,11 @@ import {
 } from '../../../services/hero-management-service';
 import { Hero, NextOrPrevious } from '../../../models/hero-models';
 import { MatButtonModule } from '@angular/material/button';
+import { HeroFilter } from '../hero-filter/hero-filter';
 
 @Component({
   selector: 'app-hero-list',
-  imports: [MatTableModule, MatButtonModule],
+  imports: [MatTableModule, MatButtonModule, HeroFilter],
   templateUrl: './hero-list.html',
   styleUrl: './hero-list.scss',
 })
@@ -19,6 +20,8 @@ export class HeroList {
   heroesData: Hero[] = [];
 
   pageInformation!: Pages;
+
+  filterText: string = '';
 
   readonly NextOrPrevious = NextOrPrevious;
 
@@ -39,10 +42,15 @@ export class HeroList {
     }
   }
 
+  handleFilter(filterText: string) {
+    this.filterText = filterText;
+    this.heroService.getPaginatedHeroes(undefined, filterText);
+  }
+
   handlePagination(event: NextOrPrevious) {
     const currentPage = this.pageInformation.currentPage;
     const pageToFetch =
       event == NextOrPrevious.NEXT ? currentPage + 1 : currentPage - 1;
-    this.heroService.getPaginatedHeroes(pageToFetch);
+    this.heroService.getPaginatedHeroes(pageToFetch, this.filterText);
   }
 }

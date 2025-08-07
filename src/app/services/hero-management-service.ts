@@ -19,6 +19,8 @@ export class HeroManagementSerivce {
 
   readonly selectedHero = this._selectedHero.asReadonly();
 
+  maxRowPerPage = 6;
+
   private _pagesInformation = signal<Pages>({
     existPrevPage: false,
     existsNextPage: false,
@@ -29,18 +31,17 @@ export class HeroManagementSerivce {
   readonly pagesInformation = this._pagesInformation.asReadonly();
 
   private _currentPageInformation = signal<Hero[]>(
-    this.heroesList().slice(0, 8)
+    this.heroesList().slice(0, this.maxRowPerPage)
   );
+  readonly currentPageInformation = this._currentPageInformation.asReadonly();
 
   private _isLoading = signal<boolean>(false);
 
   readonly isLoading = this._isLoading.asReadonly();
 
-  readonly currentPageInformation = this._currentPageInformation.asReadonly();
-
   constructor() {
     const heroesLength = this.heroesList().length;
-    const numberOfPages = Math.ceil(heroesLength / 8);
+    const numberOfPages = Math.ceil(heroesLength / this.maxRowPerPage);
     this._pagesInformation.set({
       ...this.pagesInformation(),
       numberOfPages,
@@ -129,33 +130,42 @@ export class HeroManagementSerivce {
     return columns;
   }
 
-  getPaginatedHeroes(pageNumber?: number) {
-    const heroesList = this.heroesList();
+  getPaginatedHeroes(pageNumber?: number, filterText?: string) {
+    let heroesList = this.heroesList();
+    if (filterText) {
+      heroesList = heroesList.filter((hero) =>
+        hero.name.toLowerCase().includes(filterText.toLowerCase())
+      );
+    }
     if (heroesList.length < 9) {
       this._pagesInformation.set({
         ...this.pagesInformation(),
+        currentPage: 1,
+        existPrevPage: false,
+        existsNextPage: false,
+        numberOfPages: 1,
       });
       this._currentPageInformation.set(heroesList);
     } else if (pageNumber) {
-      const startIndex = (pageNumber - 1) * 8;
+      const startIndex = (pageNumber - 1) * this.maxRowPerPage;
       this._pagesInformation.set({
         ...this.pagesInformation(),
         currentPage: pageNumber,
         existPrevPage: pageNumber > 1,
-        existsNextPage: startIndex + 8 < heroesList.length,
+        existsNextPage: startIndex + this.maxRowPerPage < heroesList.length,
       });
 
       this._currentPageInformation.set(
-        heroesList.slice(startIndex, startIndex + 8)
+        heroesList.slice(startIndex, startIndex + this.maxRowPerPage)
       );
     } else {
       this._pagesInformation.set({
         ...this.pagesInformation(),
         currentPage: 1,
         existPrevPage: false,
-        existsNextPage: heroesList.length > 8,
+        existsNextPage: heroesList.length > this.maxRowPerPage,
       });
-      this._currentPageInformation.set(heroesList.slice(0, 8));
+      this._currentPageInformation.set(heroesList.slice(0, this.maxRowPerPage));
     }
   }
 }

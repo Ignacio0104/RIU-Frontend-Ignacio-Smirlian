@@ -1,0 +1,11 @@
+<form>
+  <mat-form-field>
+    <mat-label>Hero Filter</mat-label>
+    <input
+      #heroFilter
+      (input)="onFilter(heroFilter.value)"
+      matInput
+      [defaultValue]=""
+    />
+  </mat-form-field>
+</form>
