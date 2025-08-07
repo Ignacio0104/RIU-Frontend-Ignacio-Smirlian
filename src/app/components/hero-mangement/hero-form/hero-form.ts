@@ -8,20 +8,20 @@ import {
   Validators,
 } from '@angular/forms';
 import { pictureUrlValidator } from './validators';
-import { HeroManagementSerivce } from '../../../services/hero-management-service';
+import { HeroManagementSerivce } from '../../../services/hero-management.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {
   MAT_DIALOG_DATA,
   MatDialog,
   MatDialogRef,
 } from '@angular/material/dialog';
-import { UppercaseDirective } from '../../../directives/upper-case-directive';
+import { UppercaseDirective } from '../../../directives/upper-case.directive';
 import { Hero } from '../../../models/hero-models';
 import { HeroImage } from '../hero-image/hero-image';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ConfirmDelete } from '../confirm-delete/confirm-delete';
-import { AppStatusService } from '../../../services/app-status-service';
+import { AppStatusService } from '../../../services/app-status.service';
 
 @Component({
   selector: 'app-hero-form',

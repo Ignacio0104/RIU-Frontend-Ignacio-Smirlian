@@ -1,6 +1,6 @@
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
-import { HeroManagementSerivce } from './hero-management-service';
-import { AppStatusService } from './app-status-service';
+import { HeroManagementSerivce } from './hero-management.service';
+import { AppStatusService } from './app-status.service';
 import { Hero, NextOrPrevious, UniverseEnum } from '../models/hero-models';
 
 describe('HeroManagementSerivce', () => {

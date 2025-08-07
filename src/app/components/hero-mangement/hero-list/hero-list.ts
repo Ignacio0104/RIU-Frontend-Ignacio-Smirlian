@@ -3,11 +3,11 @@ import { MatRow, MatTableModule } from '@angular/material/table';
 import {
   HeroManagementSerivce,
   Pages,
-} from '../../../services/hero-management-service';
+} from '../../../services/hero-management.service';
 import { Hero, NextOrPrevious } from '../../../models/hero-models';
 import { MatButtonModule } from '@angular/material/button';
 import { HeroFilter } from '../hero-filter/hero-filter';
-import { TableService } from '../../../services/table-service';
+import { TableService } from '../../../services/table.service';
 
 @Component({
   selector: 'app-hero-list',

@@ -1,5 +1,5 @@
 import { Component, effect, inject } from '@angular/core';
-import { HeroManagementSerivce } from '../../services/hero-management-service';
+import { HeroManagementSerivce } from '../../services/hero-management.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Hero, NextOrPrevious } from '../../models/hero-models';
@@ -14,7 +14,7 @@ import {
 import { HeroForm } from './hero-form/hero-form';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HeroSearcher } from './hero-searcher/hero-searcher';
-import { TableService } from '../../services/table-service';
+import { TableService } from '../../services/table.service';
 
 @Component({
   selector: 'app-hero-mangement',

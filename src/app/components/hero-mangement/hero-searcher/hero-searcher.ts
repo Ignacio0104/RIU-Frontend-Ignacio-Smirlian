@@ -4,11 +4,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
-import { HeroManagementSerivce } from '../../../services/hero-management-service';
+import { HeroManagementSerivce } from '../../../services/hero-management.service';
 import { Hero } from '../../../models/hero-models';
 import { Router, RouterModule } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AppStatusService } from '../../../services/app-status-service';
+import { AppStatusService } from '../../../services/app-status.service';
 
 @Component({
   selector: 'app-hero-searcher',

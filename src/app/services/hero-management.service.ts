@@ -1,7 +1,7 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { Hero, NextOrPrevious } from '../models/hero-models';
 import { initalHeroesData } from '../data/hero-data';
-import { AppStatusService } from './app-status-service';
+import { AppStatusService } from './app-status.service';
 
 export interface Pages {
   existPrevPage: boolean;

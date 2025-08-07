@@ -1,17 +1,11 @@
-import {
-  ComponentFixture,
-  TestBed,
-  fakeAsync,
-  tick,
-} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeroMangement } from './hero-mangement';
-import { HeroManagementSerivce } from '../../services/hero-management-service';
-import { TableService } from '../../services/table-service';
+import { HeroManagementSerivce } from '../../services/hero-management.service';
+import { TableService } from '../../services/table.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { Hero, NextOrPrevious, UniverseEnum } from '../../models/hero-models';
 import { signal } from '@angular/core';
-import { HeroForm } from './hero-form/hero-form';
 import { of } from 'rxjs';
 
 describe('HeroMangement', () => {

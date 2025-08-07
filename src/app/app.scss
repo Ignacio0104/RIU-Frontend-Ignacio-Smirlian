@@ -1,4 +1,9 @@
 .main {
   height: 100%;
-  background-color: green;
+  background-image: url("../../public/assets/images/wallpaper.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: rgba(248, 234, 234, 0.2);
+  background-blend-mode: lighten;
 }

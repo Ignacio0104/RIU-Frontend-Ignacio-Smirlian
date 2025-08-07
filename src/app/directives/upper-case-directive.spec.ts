@@ -7,7 +7,7 @@ import {
   ReactiveFormsModule,
   FormControl,
 } from '@angular/forms';
-import { UppercaseDirective } from './upper-case-directive';
+import { UppercaseDirective } from './upper-case.directive';
 
 @Component({
   template: ` <input type="text" [formControl]="testControl" appUppercase /> `,

@@ -6,13 +6,12 @@ import {
 } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { HeroSearcher } from './hero-searcher';
-import { HeroManagementSerivce } from '../../../services/hero-management-service';
+import { HeroManagementSerivce } from '../../../services/hero-management.service';
 import { Hero, UniverseEnum } from '../../../models/hero-models';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AppStatusService } from '../../../services/app-status-service';
+import { AppStatusService } from '../../../services/app-status.service';
 import { signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('HeroSearcher', () => {
   let component: HeroSearcher;

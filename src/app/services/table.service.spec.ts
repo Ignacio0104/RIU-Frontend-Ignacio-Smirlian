@@ -1,6 +1,6 @@
-import { TestBed, fakeAsync, tick } from '@angular/core/testing';
-import { TableService, Pages } from './table-service';
-import { HeroManagementSerivce } from './hero-management-service';
+import { TestBed } from '@angular/core/testing';
+import { TableService } from './table.service';
+import { HeroManagementSerivce } from './hero-management.service';
 import { Hero, UniverseEnum } from '../models/hero-models';
 import { signal } from '@angular/core';
 

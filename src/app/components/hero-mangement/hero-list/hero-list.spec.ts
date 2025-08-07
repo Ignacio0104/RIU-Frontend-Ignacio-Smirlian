@@ -1,15 +1,10 @@
-import {
-  ComponentFixture,
-  TestBed,
-  fakeAsync,
-  tick,
-} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeroList } from './hero-list';
 import {
   HeroManagementSerivce,
   Pages,
-} from '../../../services/hero-management-service';
-import { TableService } from '../../../services/table-service';
+} from '../../../services/hero-management.service';
+import { TableService } from '../../../services/table.service';
 import { signal } from '@angular/core';
 import {
   Hero,

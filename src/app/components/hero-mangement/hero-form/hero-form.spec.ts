@@ -12,8 +12,8 @@ import {
   MAT_DIALOG_DATA,
   MatDialogModule,
 } from '@angular/material/dialog';
-import { HeroManagementSerivce } from '../../../services/hero-management-service';
-import { AppStatusService } from '../../../services/app-status-service';
+import { HeroManagementSerivce } from '../../../services/hero-management.service';
+import { AppStatusService } from '../../../services/app-status.service';
 import { Hero, UniverseEnum } from '../../../models/hero-models';
 import { of } from 'rxjs';
 import { signal } from '@angular/core';

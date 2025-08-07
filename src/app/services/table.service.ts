@@ -1,6 +1,6 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { Hero } from '../models/hero-models';
-import { HeroManagementSerivce } from './hero-management-service';
+import { HeroManagementSerivce } from './hero-management.service';
 
 export interface Pages {
   existPrevPage: boolean;

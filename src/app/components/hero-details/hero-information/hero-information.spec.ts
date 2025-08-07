@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
-import { of } from 'rxjs';
 import { HeroInformation } from './hero-information';
-import { HeroManagementSerivce } from '../../../services/hero-management-service';
+import { HeroManagementSerivce } from '../../../services/hero-management.service';
 import { Hero, UniverseEnum } from '../../../models/hero-models';
 
 describe('HeroInformation', () => {
@@ -27,7 +26,7 @@ describe('HeroInformation', () => {
     mockActivatedRoute = {
       snapshot: {
         paramMap: {
-          get: (param: string) => '1',
+          get: () => '1',
         },
       },
     };

@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Hero } from '../../../models/hero-models';
-import { HeroManagementSerivce } from '../../../services/hero-management-service';
+import { HeroManagementSerivce } from '../../../services/hero-management.service';
 import { HeroCard } from '../../hero-mangement/hero-card/hero-card';
 import { MatButtonModule } from '@angular/material/button';
 
