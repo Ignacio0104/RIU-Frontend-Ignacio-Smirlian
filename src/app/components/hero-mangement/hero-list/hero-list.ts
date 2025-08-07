@@ -1,13 +1,10 @@
 import { Component, effect, inject, OnInit } from '@angular/core';
-import { MatRow, MatTableModule } from '@angular/material/table';
-import {
-  HeroManagementSerivce,
-  Pages,
-} from '../../../services/hero-management.service';
+import { MatTableModule } from '@angular/material/table';
+import { HeroManagementSerivce } from '../../../services/hero-management.service';
 import { Hero, NextOrPrevious } from '../../../models/hero-models';
 import { MatButtonModule } from '@angular/material/button';
 import { HeroFilter } from '../hero-filter/hero-filter';
-import { TableService } from '../../../services/table.service';
+import { Pages, TableService } from '../../../services/table.service';
 
 @Component({
   selector: 'app-hero-list',

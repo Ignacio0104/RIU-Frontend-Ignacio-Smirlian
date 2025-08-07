@@ -3,11 +3,9 @@ import { Hero, NextOrPrevious } from '../models/hero-models';
 import { initalHeroesData } from '../data/hero-data';
 import { AppStatusService } from './app-status.service';
 
-export interface Pages {
-  existPrevPage: boolean;
-  existsNextPage: boolean;
-  numberOfPages: number;
-  currentPage: number;
+export interface NextPreviousCard {
+  nextCard: boolean;
+  prevCard: boolean;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -22,6 +20,13 @@ export class HeroManagementSerivce {
 
   readonly selectedHero = this._selectedHero.asReadonly();
 
+  private _nextAndPreviousCard = signal<NextPreviousCard>({
+    nextCard: this.heroesList().length > 1,
+    prevCard: false,
+  });
+
+  readonly nextAndPreviousCard = this._nextAndPreviousCard.asReadonly();
+
   maxRowPerPage = 6;
 
   updateSelectedHeroByIndex(direction: NextOrPrevious) {
@@ -29,15 +34,24 @@ export class HeroManagementSerivce {
       (hero) => hero.id === this.selectedHero()?.id
     );
     if (currentIndex > -1) {
+      let heroIndex = currentIndex;
+
       if (
         direction === NextOrPrevious.NEXT &&
         currentIndex + 1 < this.heroesList().length
       ) {
-        this._selectedHero.set(this.heroesList()[currentIndex + 1]);
+        heroIndex += 1;
       }
-      if (direction === NextOrPrevious.PREVIOUS && currentIndex - 1 >= 0) {
-        this._selectedHero.set(this.heroesList()[currentIndex - 1]);
+
+      if (direction === NextOrPrevious.PREVIOUS) {
+        heroIndex = currentIndex > 0 ? currentIndex - 1 : 0;
       }
+
+      this._selectedHero.set(this.heroesList()[heroIndex]);
+      this._nextAndPreviousCard.set({
+        nextCard: heroIndex < this.heroesList().length - 1,
+        prevCard: heroIndex > 0,
+      });
     }
   }
 
