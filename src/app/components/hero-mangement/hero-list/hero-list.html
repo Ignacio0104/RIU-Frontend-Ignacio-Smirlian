@@ -1,11 +1,7 @@
 <div>
   <app-hero-filter (filterUpdated)="handleFilter($event)" />
   <div class="table-wrapper">
-    <table
-      mat-table
-      [dataSource]="heroesData"
-      class="mat-elevation-z8 full-height-table"
-    >
+    <table mat-table [dataSource]="heroesData" class="mat-elevation-z8">
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>ID</th>
         <td mat-cell *matCellDef="let element">{{ element.id }}</td>

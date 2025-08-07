@@ -47,6 +47,7 @@ export class HeroSearcher {
     if (!this.heroFound) {
       this.showNotFoundMessage();
     } else {
+      this.heroService.updateSelectedHeroById(this.heroFound.id);
       this.router.navigate(['/hero', id]);
     }
   }

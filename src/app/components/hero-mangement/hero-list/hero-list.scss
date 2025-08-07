@@ -1,10 +1,18 @@
+@import "../../../../styles.scss";
+
 .table-wrapper {
   height: 370px;
-  background-color: grey;
+  background-color: $primaryColor;
   margin-right: 20px;
 
   table {
     cursor: pointer;
+    background-color: black;
+  }
+
+  td,
+  th {
+    color: white;
   }
 }
 
