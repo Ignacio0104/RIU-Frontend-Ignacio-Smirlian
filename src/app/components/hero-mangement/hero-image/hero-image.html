@@ -11,7 +11,8 @@
   }@else{
   <img
     [style.display]="isLoading() ? 'none' : 'block'"
-    (load)="onImageLoad()"
+    (load)="(true)"
+    class="no-hero-image"
     alt="no hero image"
     src="assets/images/Placeholder_couple_superhero.png"
   />

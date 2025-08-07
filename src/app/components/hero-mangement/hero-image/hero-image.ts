@@ -23,7 +23,7 @@ export class HeroImage {
       }
       setTimeout(() => {
         if (this.isLoading() && !this.imageLoad()) {
-          this.isLoading.set(true);
+          this.isLoading.set(false);
         }
       }, 5000);
     });
