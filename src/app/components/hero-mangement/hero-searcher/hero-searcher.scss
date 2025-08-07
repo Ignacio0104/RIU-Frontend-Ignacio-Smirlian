@@ -1,0 +1,15 @@
+form {
+  height: 60px;
+
+  .search-button {
+    border-radius: 70%;
+    margin-left: 20px;
+    height: 40px;
+
+    button {
+      cursor: pointer;
+      background: transparent;
+      border: 0px;
+    }
+  }
+}

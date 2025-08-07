@@ -74,11 +74,23 @@ export class HeroManagementSerivce {
     }
   }
 
+  getHeroById(id: string, delay = 2000): Promise<Hero | undefined> {
+    this._isLoading.set(true);
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        this._isLoading.set(false);
+        const hero = this.heroesList().find((h) => h.id === id);
+        resolve(hero);
+      }, delay);
+    });
+  }
+
   editHero(hero: Hero) {
     this._isLoading.set(true);
+    const currentHeroList = this.heroesList();
     setTimeout(() => {
-      const heroIndex = this.heroesList().findIndex(
-        (hero) => hero.id === hero.id
+      const heroIndex = currentHeroList.findIndex(
+        (heroItem) => heroItem.id === hero.id
       );
 
       if (heroIndex > -1) {
@@ -86,7 +98,10 @@ export class HeroManagementSerivce {
 
         this._selectedHero.set(hero);
 
-        (currentHeroList[heroIndex] = { ...hero }),
+        (currentHeroList[heroIndex] = {
+          ...hero,
+          id: currentHeroList[heroIndex].id,
+        }),
           this._heroesList.set(currentHeroList);
       }
       this._isLoading.set(false);
@@ -109,6 +124,9 @@ export class HeroManagementSerivce {
 
   removeHero(heroid: string) {
     const currentList = this._heroesList();
+    if (this.selectedHero()?.id === heroid) {
+      this._selectedHero.set(null);
+    }
     if (currentList) {
       this._heroesList.set(currentList.filter((hero) => hero.id !== heroid));
     }

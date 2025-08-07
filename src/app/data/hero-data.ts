@@ -16,10 +16,10 @@ export const initalHeroesData: Hero[] = [
     id: '2',
     name: 'THOR',
     alterEgo: 'Donal Blake',
-    power: 500,
+    power: 499,
     universe: UniverseEnum.MARVEL,
     pictureUrl:
-      'https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2020/09/thor-2070145.jpg?tf=3840x',
+      'https://www.cinemascomics.com/wp-content/uploads/2017/03/Thor-en-los-comics-de-Marvel.jpg',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam exercitationem perspiciatis officia modi impedit temporibus. Nam, quas itaque. Tempora?',
   },

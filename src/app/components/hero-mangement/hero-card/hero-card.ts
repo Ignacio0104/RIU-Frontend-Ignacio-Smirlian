@@ -16,6 +16,8 @@ export class HeroCard {
 
   editHero = output<boolean>();
 
+  detailsView = input<boolean>();
+
   selectedHero = input.required<Hero>();
 
   emitChangeHero(action: NextOrPrevious) {

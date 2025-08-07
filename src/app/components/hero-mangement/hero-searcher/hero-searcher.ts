@@ -1,0 +1,59 @@
+import { Component, effect, inject, output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { HeroManagementSerivce } from '../../../services/hero-management-service';
+import { Hero } from '../../../models/hero-models';
+import { Router, RouterModule } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+@Component({
+  selector: 'app-hero-searcher',
+  imports: [
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatProgressSpinner,
+    RouterModule,
+  ],
+  templateUrl: './hero-searcher.html',
+  styleUrl: './hero-searcher.scss',
+})
+export class HeroSearcher {
+  private snackBar = inject(MatSnackBar);
+  heroService = inject(HeroManagementSerivce);
+
+  router = inject(Router);
+
+  isLoading = false;
+
+  heroFound?: Hero;
+
+  heroNotFound = false;
+
+  constructor() {
+    effect(() => {
+      this.isLoading = this.heroService.isLoading();
+    });
+  }
+
+  async searchHero(id: string) {
+    this.heroFound = await this.heroService.getHeroById(id);
+    if (!this.heroFound) {
+      this.showNotFoundMessage();
+    } else {
+      this.router.navigate(['/hero', id]);
+    }
+  }
+
+  private showNotFoundMessage(duration: number = 11000) {
+    this.snackBar.open('Hero not found!', '', {
+      duration: duration,
+      horizontalPosition: 'end',
+      verticalPosition: 'bottom',
+    });
+  }
+}

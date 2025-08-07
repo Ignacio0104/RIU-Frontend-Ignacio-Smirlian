@@ -1,1 +1,6 @@
-
+<div class="details-container">
+  <button matButton="filled" (click)="goToHome()">Back</button>
+  @if(hero){
+  <app-hero-card [selectedHero]="hero" [detailsView]="true" />
+  }
+</div>

@@ -13,10 +13,11 @@ import {
 } from '@angular/material/dialog';
 import { HeroForm } from './hero-form/hero-form';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { HeroSearcher } from './hero-searcher/hero-searcher';
 
 @Component({
   selector: 'app-hero-mangement',
-  imports: [HeroCard, HeroList, MatButtonModule, MatDialogModule],
+  imports: [HeroCard, HeroList, MatButtonModule, MatDialogModule, HeroSearcher],
   templateUrl: './hero-mangement.html',
   styleUrl: './hero-mangement.scss',
 })

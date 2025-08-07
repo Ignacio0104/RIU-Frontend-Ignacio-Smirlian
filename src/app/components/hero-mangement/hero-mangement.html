@@ -1,15 +1,22 @@
 <div class="main-hero-container">
-  @if(selectedHero){
-  <app-hero-card
-    [selectedHero]="selectedHero"
-    (changeHero)="changeSelectedHero($event)"
-    (editHero)="openFormDialog($event)"
-  />
-  } @if(heroesList.length > 0){
-  <app-hero-list />
-  }
+  <div>
+    @if(selectedHero){
+    <app-hero-card
+      [selectedHero]="selectedHero"
+      (changeHero)="changeSelectedHero($event)"
+      (editHero)="openFormDialog($event)"
+    />
 
-  <div class="button-container">
+    }
+  </div>
+  <div>
+    @if(heroesList.length > 0){
+    <app-hero-list />
+    }
+  </div>
+
+  <div class="footer-container">
     <button matButton="tonal" (click)="openFormDialog()">Add Hero +</button>
+    <app-hero-searcher />
   </div>
 </div>

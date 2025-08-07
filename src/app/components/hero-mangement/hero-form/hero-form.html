@@ -1,4 +1,15 @@
 <div class="form-container">
+  @if(data){
+  <button
+    matFab
+    aria-label="delete button"
+    (click)="showConfirmation()"
+    class="delete-button"
+  >
+    <mat-icon>delete</mat-icon>
+  </button>
+  }
+
   <form [formGroup]="heroForm" (ngSubmit)="onSubmit()" class="hero-form">
     <label>
       Name:

@@ -4,7 +4,7 @@ import { HeroMangement } from './components/hero-mangement/hero-mangement';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeroMangement],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

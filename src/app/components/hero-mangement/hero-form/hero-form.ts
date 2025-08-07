@@ -10,10 +10,17 @@ import {
 import { pictureUrlValidator } from './validators';
 import { HeroManagementSerivce } from '../../../services/hero-management-service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogRef,
+} from '@angular/material/dialog';
 import { UppercaseDirective } from '../../../directives/upper-case-directive';
 import { Hero } from '../../../models/hero-models';
 import { HeroImage } from '../hero-image/hero-image';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { ConfirmDelete } from '../confirm-delete/confirm-delete';
 
 @Component({
   selector: 'app-hero-form',
@@ -25,6 +32,8 @@ import { HeroImage } from '../hero-image/hero-image';
     MatProgressSpinnerModule,
     UppercaseDirective,
     HeroImage,
+    MatButtonModule,
+    MatIconModule,
   ],
   templateUrl: './hero-form.html',
   styleUrl: './hero-form.scss',
@@ -33,6 +42,8 @@ export class HeroForm {
   heroForm!: FormGroup;
 
   fb = inject(FormBuilder);
+
+  dialog = inject(MatDialog);
 
   data = inject<Hero | null>(MAT_DIALOG_DATA, { optional: true });
 
@@ -118,5 +129,18 @@ export class HeroForm {
         });
       }
     }
+  }
+
+  showConfirmation() {
+    const dialogRef = this.dialog.open(ConfirmDelete, {
+      width: '300px',
+    });
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this.heroService.removeHero(this.data?.id || '');
+        this.dialogRef.close(true);
+      }
+    });
   }
 }

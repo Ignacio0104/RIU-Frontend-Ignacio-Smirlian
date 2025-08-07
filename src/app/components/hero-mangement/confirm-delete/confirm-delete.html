@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Confirmar Eliminación</h2>
+<mat-dialog-content>
+  ¿Estás seguro de que quieres eliminar este elemento?
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="dialogRef.close(false)">Cancelar</button>
+  <button mat-button color="warn" (click)="dialogRef.close(true)">
+    Eliminar
+  </button>
+</mat-dialog-actions>
