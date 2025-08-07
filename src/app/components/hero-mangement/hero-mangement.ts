@@ -31,18 +31,16 @@ export class HeroMangement {
 
   private tableService = inject(TableService);
 
+  selectedHero: Hero | null = null;
+
+  heroesList: Hero[] = [];
+
   constructor() {
     effect(() => {
       this.selectedHero = this.heroService.selectedHero();
       this.heroesList = this.heroService.heroesList();
     });
   }
-
-  selectedHero: Hero | null = null;
-
-  heroesList: Hero[] = [];
-
-  ngOnInit() {}
 
   openFormDialog(edition?: boolean) {
     const dialogConfig = {} as MatDialogConfig;

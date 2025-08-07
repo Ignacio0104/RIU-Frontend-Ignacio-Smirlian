@@ -1,4 +1,4 @@
-import { Component, effect, inject } from '@angular/core';
+import { Component, effect, inject, OnInit } from '@angular/core';
 import { MatRow, MatTableModule } from '@angular/material/table';
 import {
   HeroManagementSerivce,
@@ -15,10 +15,11 @@ import { TableService } from '../../../services/table.service';
   templateUrl: './hero-list.html',
   styleUrl: './hero-list.scss',
 })
-export class HeroList {
+export class HeroList implements OnInit {
   private heroService = inject(HeroManagementSerivce);
 
   private tableService = inject(TableService);
+
   columns: string[] = [];
 
   heroesData: Hero[] = [];

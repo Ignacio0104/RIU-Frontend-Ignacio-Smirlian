@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class HeroCard {
   readonly NextOrPrevious = NextOrPrevious;
+
   changeHero = output<NextOrPrevious>();
 
   editHero = output<boolean>();

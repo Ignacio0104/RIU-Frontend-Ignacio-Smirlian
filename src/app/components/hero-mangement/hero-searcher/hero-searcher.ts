@@ -25,6 +25,7 @@ import { AppStatusService } from '../../../services/app-status.service';
 })
 export class HeroSearcher {
   private snackBar = inject(MatSnackBar);
+
   heroService = inject(HeroManagementSerivce);
   appStatusSvc = inject(AppStatusService);
 

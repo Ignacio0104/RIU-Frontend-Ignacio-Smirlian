@@ -5,6 +5,4 @@ import { HeroInformation } from './components/hero-details/hero-information/hero
 export const routes: Routes = [
   { path: '', component: HeroMangement },
   { path: 'hero/:id', component: HeroInformation },
-  //TODO: Implement
-  //{ path: '**', component: PageNotFoundComponent },
 ];

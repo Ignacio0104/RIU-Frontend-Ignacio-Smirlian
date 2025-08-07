@@ -185,7 +185,7 @@ export const initalHeroesData: Hero[] = [
     alterEgo: 'Kara Danvers',
     power: 480,
     universe: UniverseEnum.DC,
-    pictureUrl: '',
-    description: 'https://cdn.mos.cms.futurecdn.net/TUD9irX4BXu9pBphTjriET.jpg',
+    pictureUrl: 'https://cdn.mos.cms.futurecdn.net/TUD9irX4BXu9pBphTjriET.jpg',
+    description: '',
   },
 ];

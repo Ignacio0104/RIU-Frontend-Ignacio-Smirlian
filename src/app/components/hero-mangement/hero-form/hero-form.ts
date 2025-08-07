@@ -1,4 +1,4 @@
-import { Component, effect, inject, signal } from '@angular/core';
+import { Component, effect, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
@@ -39,7 +39,7 @@ import { AppStatusService } from '../../../services/app-status.service';
   templateUrl: './hero-form.html',
   styleUrl: './hero-form.scss',
 })
-export class HeroForm {
+export class HeroForm implements OnInit {
   appStatusSvc = inject(AppStatusService);
   heroForm!: FormGroup;
 

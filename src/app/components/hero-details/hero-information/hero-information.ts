@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Hero } from '../../../models/hero-models';
 import { HeroManagementSerivce } from '../../../services/hero-management.service';
@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './hero-information.html',
   styleUrl: './hero-information.scss',
 })
-export class HeroInformation {
+export class HeroInformation implements OnInit {
   private route = inject(ActivatedRoute);
 
   private router = inject(Router);
