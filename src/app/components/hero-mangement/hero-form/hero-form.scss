@@ -1,9 +1,12 @@
+@import "../../../../styles.scss";
 .form-container {
   height: 500px;
   width: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: black;
+  color: $higlightColor;
 
   .hero-form {
     display: flex;
@@ -41,6 +44,10 @@
     margin-top: 20px;
     display: flex;
     justify-content: center;
+  }
+  .submit-btn {
+    background-color: white;
+    color: black;
   }
 
   .image-input {

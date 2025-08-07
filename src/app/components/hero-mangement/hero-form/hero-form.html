@@ -108,7 +108,12 @@
       ></textarea>
     </label>
 
-    <button type="submit" [disabled]="heroForm.invalid && !data">
+    <button
+      class="submit-btn"
+      mat-button
+      type="submit"
+      [disabled]="heroForm.invalid && !data"
+    >
       @if(!saving){
       <span>{{ data ? "Edit Hero" : "Create Hero" }}</span>
       }@else {

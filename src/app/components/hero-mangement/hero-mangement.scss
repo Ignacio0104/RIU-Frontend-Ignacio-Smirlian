@@ -11,5 +11,12 @@
     grid-column: 1 / -1;
     justify-content: space-around;
     align-items: center;
+
+    .add-hero-button {
+      font-size: 4vh;
+      height: 90px;
+      --mat-button-tonal-container-color: black;
+      --mat-button-tonal-label-text-color: rgb(245, 245, 4);
+    }
   }
 }

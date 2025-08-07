@@ -16,7 +16,13 @@
   </div>
 
   <div class="footer-container">
-    <button matButton="tonal" (click)="openFormDialog()">Add Hero +</button>
+    <button
+      matButton="tonal"
+      class="add-hero-button"
+      (click)="openFormDialog()"
+    >
+      Add Hero +
+    </button>
     <app-hero-searcher />
   </div>
 </div>

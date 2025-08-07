@@ -21,4 +21,13 @@
   width: 100%;
   justify-content: space-around;
   margin-top: 30px;
+
+  button:not(:disabled) {
+    background-color: black;
+  }
+
+  p {
+    color: white;
+    font-weight: bold;
+  }
 }

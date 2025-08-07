@@ -1,4 +1,9 @@
 .details-container {
   height: calc(100vh - 8vh);
   padding-top: 8vh;
+
+  button {
+    background-color: black;
+    margin-left: 20px;
+  }
 }
