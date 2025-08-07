@@ -14,6 +14,7 @@ import {
 import { HeroForm } from './hero-form/hero-form';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HeroSearcher } from './hero-searcher/hero-searcher';
+import { TableService } from '../../services/table-service';
 
 @Component({
   selector: 'app-hero-mangement',
@@ -26,7 +27,11 @@ export class HeroMangement {
 
   private snackBar = inject(MatSnackBar);
 
-  constructor(private heroService: HeroManagementSerivce) {
+  private heroService = inject(HeroManagementSerivce);
+
+  private tableService = inject(TableService);
+
+  constructor() {
     effect(() => {
       this.selectedHero = this.heroService.selectedHero();
       this.heroesList = this.heroService.heroesList();
@@ -50,7 +55,7 @@ export class HeroMangement {
     dialogRef.afterClosed().subscribe((res) => {
       if (res) {
         this.showConfirmation();
-        this.heroService.getPaginatedHeroes();
+        this.tableService.getPaginatedHeroes();
       }
     });
   }

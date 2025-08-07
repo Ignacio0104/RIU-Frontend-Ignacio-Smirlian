@@ -1,4 +1,4 @@
-import { Component, effect } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { MatRow, MatTableModule } from '@angular/material/table';
 import {
   HeroManagementSerivce,
@@ -7,6 +7,7 @@ import {
 import { Hero, NextOrPrevious } from '../../../models/hero-models';
 import { MatButtonModule } from '@angular/material/button';
 import { HeroFilter } from '../hero-filter/hero-filter';
+import { TableService } from '../../../services/table-service';
 
 @Component({
   selector: 'app-hero-list',
@@ -15,6 +16,9 @@ import { HeroFilter } from '../hero-filter/hero-filter';
   styleUrl: './hero-list.scss',
 })
 export class HeroList {
+  private heroService = inject(HeroManagementSerivce);
+
+  private tableService = inject(TableService);
   columns: string[] = [];
 
   heroesData: Hero[] = [];
@@ -25,15 +29,15 @@ export class HeroList {
 
   readonly NextOrPrevious = NextOrPrevious;
 
-  constructor(private heroService: HeroManagementSerivce) {
+  constructor() {
     effect(() => {
-      this.heroesData = this.heroService.currentPageInformation();
-      this.pageInformation = this.heroService.pagesInformation();
+      this.heroesData = this.tableService.currentPageInformation();
+      this.pageInformation = this.tableService.pagesInformation();
     });
   }
 
   ngOnInit() {
-    this.columns = this.heroService.getColumns();
+    this.columns = this.tableService.getColumns();
   }
 
   clickedCell(row: Hero) {
@@ -44,13 +48,13 @@ export class HeroList {
 
   handleFilter(filterText: string) {
     this.filterText = filterText;
-    this.heroService.getPaginatedHeroes(undefined, filterText);
+    this.tableService.getPaginatedHeroes(undefined, filterText);
   }
 
   handlePagination(event: NextOrPrevious) {
     const currentPage = this.pageInformation.currentPage;
     const pageToFetch =
       event == NextOrPrevious.NEXT ? currentPage + 1 : currentPage - 1;
-    this.heroService.getPaginatedHeroes(pageToFetch, this.filterText);
+    this.tableService.getPaginatedHeroes(pageToFetch, this.filterText);
   }
 }

@@ -8,6 +8,7 @@ import { HeroManagementSerivce } from '../../../services/hero-management-service
 import { Hero } from '../../../models/hero-models';
 import { Router, RouterModule } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AppStatusService } from '../../../services/app-status-service';
 
 @Component({
   selector: 'app-hero-searcher',
@@ -25,6 +26,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class HeroSearcher {
   private snackBar = inject(MatSnackBar);
   heroService = inject(HeroManagementSerivce);
+  appStatusSvc = inject(AppStatusService);
 
   router = inject(Router);
 
@@ -36,7 +38,7 @@ export class HeroSearcher {
 
   constructor() {
     effect(() => {
-      this.isLoading = this.heroService.isLoading();
+      this.isLoading = this.appStatusSvc.isLoading();
     });
   }
 

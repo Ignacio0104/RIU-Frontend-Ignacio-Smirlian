@@ -5,7 +5,7 @@
       <input #searchById matInput [defaultValue]="" type="number" min="1" />
     </mat-form-field>
     <button class="search-button" mat-icon-button>
-      @if(isLoading){
+      @if(isLoading && searchById.value){
       <mat-spinner [diameter]="25"></mat-spinner>
       }@else{
       <button (click)="searchHero(searchById?.value || '')">

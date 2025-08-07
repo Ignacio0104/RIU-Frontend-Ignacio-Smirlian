@@ -21,6 +21,7 @@ import { HeroImage } from '../hero-image/hero-image';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ConfirmDelete } from '../confirm-delete/confirm-delete';
+import { AppStatusService } from '../../../services/app-status-service';
 
 @Component({
   selector: 'app-hero-form',
@@ -39,6 +40,7 @@ import { ConfirmDelete } from '../confirm-delete/confirm-delete';
   styleUrl: './hero-form.scss',
 })
 export class HeroForm {
+  appStatusSvc = inject(AppStatusService);
   heroForm!: FormGroup;
 
   fb = inject(FormBuilder);
@@ -57,7 +59,7 @@ export class HeroForm {
 
   constructor() {
     effect(() => {
-      this.saving = this.heroService.isLoading();
+      this.saving = this.appStatusSvc.isLoading();
       if (this.formSubmitted() && !this.saving) {
         this.dialogRef.close(true);
       }

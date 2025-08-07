@@ -1,6 +1,7 @@
-import { Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { Hero, NextOrPrevious } from '../models/hero-models';
 import { initalHeroesData } from '../data/hero-data';
+import { AppStatusService } from './app-status-service';
 
 export interface Pages {
   existPrevPage: boolean;
@@ -11,6 +12,8 @@ export interface Pages {
 
 @Injectable({ providedIn: 'root' })
 export class HeroManagementSerivce {
+  private appStatusSvc = inject(AppStatusService);
+
   private _heroesList = signal<Hero[]>(initalHeroesData);
 
   readonly heroesList = this._heroesList.asReadonly();
@@ -20,34 +23,6 @@ export class HeroManagementSerivce {
   readonly selectedHero = this._selectedHero.asReadonly();
 
   maxRowPerPage = 6;
-
-  private _pagesInformation = signal<Pages>({
-    existPrevPage: false,
-    existsNextPage: false,
-    currentPage: 1,
-    numberOfPages: 1,
-  });
-
-  readonly pagesInformation = this._pagesInformation.asReadonly();
-
-  private _currentPageInformation = signal<Hero[]>(
-    this.heroesList().slice(0, this.maxRowPerPage)
-  );
-  readonly currentPageInformation = this._currentPageInformation.asReadonly();
-
-  private _isLoading = signal<boolean>(false);
-
-  readonly isLoading = this._isLoading.asReadonly();
-
-  constructor() {
-    const heroesLength = this.heroesList().length;
-    const numberOfPages = Math.ceil(heroesLength / this.maxRowPerPage);
-    this._pagesInformation.set({
-      ...this.pagesInformation(),
-      numberOfPages,
-      existsNextPage: numberOfPages > 1,
-    });
-  }
 
   updateSelectedHeroByIndex(direction: NextOrPrevious) {
     const currentIndex = this.heroesList().findIndex(
@@ -75,10 +50,10 @@ export class HeroManagementSerivce {
   }
 
   getHeroById(id: string, delay = 2000): Promise<Hero | undefined> {
-    this._isLoading.set(true);
+    this.appStatusSvc.updateLoadingStatus(true);
     return new Promise((resolve) => {
       setTimeout(() => {
-        this._isLoading.set(false);
+        this.appStatusSvc.updateLoadingStatus(false);
         const hero = this.heroesList().find((h) => h.id === id);
         resolve(hero);
       }, delay);
@@ -86,7 +61,7 @@ export class HeroManagementSerivce {
   }
 
   editHero(hero: Hero) {
-    this._isLoading.set(true);
+    this.appStatusSvc.updateLoadingStatus(true);
     const currentHeroList = this.heroesList();
     setTimeout(() => {
       const heroIndex = currentHeroList.findIndex(
@@ -104,12 +79,12 @@ export class HeroManagementSerivce {
         }),
           this._heroesList.set(currentHeroList);
       }
-      this._isLoading.set(false);
+      this.appStatusSvc.updateLoadingStatus(false);
     }, 3000);
   }
 
   addNewHero(hero: Hero) {
-    this._isLoading.set(true);
+    this.appStatusSvc.updateLoadingStatus(true);
     setTimeout(() => {
       this._heroesList.set([
         {
@@ -118,7 +93,7 @@ export class HeroManagementSerivce {
         },
         ...this.heroesList(),
       ]);
-      this._isLoading.set(false);
+      this.appStatusSvc.updateLoadingStatus(false);
     }, 3000);
   }
 
@@ -129,61 +104,6 @@ export class HeroManagementSerivce {
     }
     if (currentList) {
       this._heroesList.set(currentList.filter((hero) => hero.id !== heroid));
-    }
-  }
-
-  getColumns(): string[] {
-    const columns: string[] = [];
-    if (this._heroesList().length > 0) {
-      const heroesProperties = Object.keys(this._heroesList()[0]);
-      heroesProperties.forEach((property) => {
-        if (
-          !property.includes('description') &&
-          !property.includes('pictureUrl')
-        ) {
-          columns.push(property);
-        }
-      });
-    }
-    return columns;
-  }
-
-  getPaginatedHeroes(pageNumber?: number, filterText?: string) {
-    let heroesList = this.heroesList();
-    if (filterText) {
-      heroesList = heroesList.filter((hero) =>
-        hero.name.toLowerCase().includes(filterText.toLowerCase())
-      );
-    }
-    if (heroesList.length < 9) {
-      this._pagesInformation.set({
-        ...this.pagesInformation(),
-        currentPage: 1,
-        existPrevPage: false,
-        existsNextPage: false,
-        numberOfPages: 1,
-      });
-      this._currentPageInformation.set(heroesList);
-    } else if (pageNumber) {
-      const startIndex = (pageNumber - 1) * this.maxRowPerPage;
-      this._pagesInformation.set({
-        ...this.pagesInformation(),
-        currentPage: pageNumber,
-        existPrevPage: pageNumber > 1,
-        existsNextPage: startIndex + this.maxRowPerPage < heroesList.length,
-      });
-
-      this._currentPageInformation.set(
-        heroesList.slice(startIndex, startIndex + this.maxRowPerPage)
-      );
-    } else {
-      this._pagesInformation.set({
-        ...this.pagesInformation(),
-        currentPage: 1,
-        existPrevPage: false,
-        existsNextPage: heroesList.length > this.maxRowPerPage,
-      });
-      this._currentPageInformation.set(heroesList.slice(0, this.maxRowPerPage));
     }
   }
 }
