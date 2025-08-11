@@ -122,7 +122,14 @@ describe('TableService', () => {
 
   it('should return correct column names', () => {
     const columns = service.getColumns();
-    expect(columns).toEqual(['id', 'name', 'alterEgo', 'power', 'universe']);
+    expect(columns).toEqual([
+      'id',
+      'name',
+      'alterEgo',
+      'power',
+      'universe',
+      'delete',
+    ]);
   });
 
   it('should filter heroes and update pages information correctly', () => {

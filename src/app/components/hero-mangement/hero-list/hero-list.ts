@@ -5,10 +5,13 @@ import { Hero, NextOrPrevious } from '../../../models/hero-models';
 import { MatButtonModule } from '@angular/material/button';
 import { HeroFilter } from '../hero-filter/hero-filter';
 import { Pages, TableService } from '../../../services/table.service';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ConfirmDelete } from '../confirm-delete/confirm-delete';
 
 @Component({
   selector: 'app-hero-list',
-  imports: [MatTableModule, MatButtonModule, HeroFilter],
+  imports: [MatTableModule, MatButtonModule, HeroFilter, MatIconModule],
   templateUrl: './hero-list.html',
   styleUrl: './hero-list.scss',
 })
@@ -16,6 +19,8 @@ export class HeroList implements OnInit {
   private heroService = inject(HeroManagementSerivce);
 
   private tableService = inject(TableService);
+
+  private dialog = inject(MatDialog);
 
   columns: string[] = [];
 
@@ -47,6 +52,22 @@ export class HeroList implements OnInit {
   handleFilter(filterText: string) {
     this.filterText = filterText;
     this.tableService.getPaginatedHeroes(undefined, filterText);
+  }
+
+  showConfirmation(hero: Hero) {
+    const dialogRef = this.dialog.open(ConfirmDelete, {
+      width: '300px',
+    });
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this.heroService.removeHero(hero.id || '');
+        this.tableService.getPaginatedHeroes(
+          this.pageInformation.currentPage,
+          this.filterText
+        );
+      }
+    });
   }
 
   handlePagination(event: NextOrPrevious) {

@@ -52,7 +52,7 @@ export class TableService {
         }
       });
     }
-    return columns;
+    return [...columns, 'delete'];
   }
 
   getPaginatedHeroes(pageNumber?: number, filterText?: string) {
