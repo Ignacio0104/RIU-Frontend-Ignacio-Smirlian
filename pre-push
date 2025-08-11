@@ -2,7 +2,6 @@
 
 echo "🔍 Running tests before push..."
 
-# Ejecutar tests en modo CI (sin watch)
 npm test -- --watch=false --browsers=ChromeHeadless
 RESULT=$?
 
