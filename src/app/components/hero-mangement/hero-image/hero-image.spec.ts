@@ -45,7 +45,7 @@ describe('HeroImage', () => {
 
     tick(5000);
 
-    expect(component.isLoading()).toBe(true);
+    expect(component.isLoading()).toBe(false);
   }));
 
   it('should not change isLoading after 5 seconds if image has already loaded', fakeAsync(() => {

@@ -4,7 +4,7 @@ import { HeroManagementSerivce } from '../../services/hero-management.service';
 import { TableService } from '../../services/table.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { Hero, NextOrPrevious, UniverseEnum } from '../../models/hero-models';
+import { NextOrPrevious } from '../../models/hero-models';
 import { signal } from '@angular/core';
 import { of } from 'rxjs';
 
@@ -15,16 +15,6 @@ describe('HeroMangement', () => {
   let mockTableService: any;
   let mockDialog: any;
   let mockSnackBar: any;
-
-  const mockHero: Hero = {
-    id: '1',
-    name: 'Superman',
-    alterEgo: 'Clark Kent',
-    power: 100,
-    universe: UniverseEnum.DC,
-    pictureUrl: 'superman.jpg',
-    description: 'The Man of Steel',
-  };
 
   beforeEach(async () => {
     mockHeroService = {
@@ -82,7 +72,7 @@ describe('HeroMangement', () => {
   });
 
   it('should open a snackbar notification when showConfirmation is called', () => {
-    (component as any).showConfirmation();
+    (component as any).showConfirmation('created');
     expect(mockSnackBar.open).toHaveBeenCalledWith(
       'Hero created succesfully!',
       '',

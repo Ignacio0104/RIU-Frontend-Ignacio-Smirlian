@@ -16,9 +16,9 @@ import { RouterModule } from '@angular/router';
 describe('HeroSearcher', () => {
   let component: HeroSearcher;
   let fixture: ComponentFixture<HeroSearcher>;
-  let mockHeroService: any;
-  let mockRouter: any;
-  let mockSnackBar: any;
+  let mockHeroService: jasmine.SpyObj<HeroManagementSerivce>;
+  let mockRouter: jasmine.SpyObj<Router>;
+  let mockSnackBar: jasmine.SpyObj<MatSnackBar>;
   let mockAppStatusSvc: any;
 
   const mockHero: Hero = {
@@ -32,19 +32,13 @@ describe('HeroSearcher', () => {
   };
 
   beforeEach(async () => {
-    mockHeroService = {
-      getHeroById: jasmine
-        .createSpy('getHeroById')
-        .and.returnValue(Promise.resolve(mockHero)),
-    };
+    mockHeroService = jasmine.createSpyObj('HeroManagementSerivce', [
+      'getHeroById',
+      'updateSelectedHeroById',
+    ]);
+    mockRouter = jasmine.createSpyObj('Router', ['navigate']);
 
-    mockRouter = {
-      navigate: jasmine.createSpy('navigate'),
-    };
-
-    mockSnackBar = {
-      open: jasmine.createSpy('open'),
-    };
+    mockSnackBar = jasmine.createSpyObj('MatSnackBar', ['open']);
 
     mockAppStatusSvc = {
       isLoading: signal(false),
@@ -72,6 +66,7 @@ describe('HeroSearcher', () => {
   });
 
   it('should call getHeroById and navigate on successful search', fakeAsync(() => {
+    mockHeroService.getHeroById.and.returnValue(Promise.resolve(mockHero));
     component.searchHero('1');
     tick();
     expect(mockHeroService.getHeroById).toHaveBeenCalledWith('1');

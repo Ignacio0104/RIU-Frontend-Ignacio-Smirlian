@@ -1,0 +1,15 @@
+#!/bin/sh
+
+echo "🔍 Running tests before push..."
+
+# Ejecutar tests en modo CI (sin watch)
+npm test -- --watch=false --browsers=ChromeHeadless
+RESULT=$?
+
+if [ $RESULT -ne 0 ]; then
+  echo "❌ Tests failed. Push aborted."
+  exit 1
+fi
+
+echo "✅ All tests passed. Proceeding with push."
+exit 0

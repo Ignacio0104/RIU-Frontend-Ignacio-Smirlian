@@ -1,10 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeroList } from './hero-list';
-import {
-  HeroManagementSerivce,
-  Pages,
-} from '../../../services/hero-management.service';
-import { TableService } from '../../../services/table.service';
+import { HeroManagementSerivce } from '../../../services/hero-management.service';
+import { Pages, TableService } from '../../../services/table.service';
 import { signal } from '@angular/core';
 import {
   Hero,

@@ -52,7 +52,7 @@ export class HeroList implements OnInit {
   handlePagination(event: NextOrPrevious) {
     const currentPage = this.pageInformation.currentPage;
     const pageToFetch =
-      event == NextOrPrevious.NEXT ? currentPage + 1 : currentPage - 1;
+      event === NextOrPrevious.NEXT ? currentPage + 1 : currentPage - 1;
     this.tableService.getPaginatedHeroes(pageToFetch, this.filterText);
   }
 }
